@@ -1,0 +1,102 @@
+* README for Tiki Git Repositories
+
+** Intention & Status
+
+TIki is moving from Subversion to Git.
+- [[https://dev.tiki.org/Using+Git+with+Tiki][Using Git with Tiki]]
+- [[https://gitlab.com/tikiwiki/tiki][Tiki Gitlab Repository]]
+- [[https://dev.tiki.org/Git-and-SVN-combined-workflow][Git and SVN combined workflow]]
+
+As of Friday, 3 August 2018) the official version of Tiki is
+18.1 and the expected release date of Tiki 19 is sometime
+October 2018.
+
+I would like to move the NGender changes to the Tiki into an
+experimental branch for which I can send a pull request.
+
+** Questions
+
+- Shall I fork the Tiki repository on GitLab?
+- Can I 
+- How do I move my experimental branch along keep my changes 
+
+** Initial setup of my local Repositories
+
+*** Creating ~/Gits/Tiki-Gits
+#+BEGIN_EXAMPLE
+$  hostname
+ultima
+$ mkdir -p ~/Gits/Tiki-Gits
+$ cd !$
+#+END_EXAMPLE
+*** Creating Repositories Tiki-Git-Reference/ tiki/  tiki19/  
+#+BEGIN_EXAMPLE
+$  git clone --mirror https://gitlab.com/tikiwiki/tiki.git Tiki-Git-Reference
+Cloning into bare repository 'Tiki-Git-Reference'...
+remote: Enumerating objects: 560715, done.        
+remote: Counting objects: 100% (560715/560715), done.        
+remote: Compressing objects: 100% (118765/118765), done.        
+remote: Total 560715 (delta 436740), reused 560672 (delta 436720)        
+Receiving objects: 100% (560715/560715), 2.90 GiB | 1.67 MiB/s, done.
+Resolving deltas: 100% (436740/436740), done.
+$  git clone --reference Tiki-Git-Reference https://gitlab.com/tikiwiki/tiki.git
+Cloning into 'tiki'...
+Checking connectivity: 560715, done.
+Checking out files: 100% (8484/8484), done.
+$  git clone --reference Tiki-Git-Reference https://gitlab.com/tikiwiki/tiki.git tiki19
+Cloning into 'tiki19'...
+Checking connectivity: 560715, done.
+Checking out files: 100% (8484/8484), done.
+$  ls -F
+tiki/  tiki19/  Tiki-Git-Reference/
+#+END_EXAMPLE
+*** Into tiki19
+#+BEGIN_EXAMPLE
+$ cd tiki19
+$ git branch -a
+\* master
+  remotes/origin/1.10
+  remotes/origin/10.x
+  remotes/origin/11.x
+  remotes/origin/12.x
+  remotes/origin/13.x
+  remotes/origin/14.x
+  remotes/origin/15.x
+  remotes/origin/16.x
+  remotes/origin/17.x
+  remotes/origin/18.x
+  remotes/origin/2.0
+  remotes/origin/3.0
+  remotes/origin/4.x
+  remotes/origin/5.x
+  remotes/origin/6.x
+  remotes/origin/7.x
+  remotes/origin/8.x
+  remotes/origin/9.x
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/experimental/bootstrap4
+  remotes/origin/experimental/ldap-replacement
+  remotes/origin/experimental/theme-package
+  remotes/origin/master
+  remotes/origin/svn/1.10
+  remotes/origin/svn/10.x
+  remotes/origin/svn/11.x
+  remotes/origin/svn/12.x
+  remotes/origin/svn/13.x
+  remotes/origin/svn/14.x
+  remotes/origin/svn/15.x
+  remotes/origin/svn/16.x
+  remotes/origin/svn/17.x
+  remotes/origin/svn/18.x
+  remotes/origin/svn/2.0
+  remotes/origin/svn/3.0
+  remotes/origin/svn/4.x
+  remotes/origin/svn/5.x
+  remotes/origin/svn/6.x
+  remotes/origin/svn/7.x
+  remotes/origin/svn/8.x
+  remotes/origin/svn/9.x
+  remotes/origin/users/kstingel/ks-trunk
+  remotes/origin/users/niclone/intertiki-register
+  remotes/origin/users/niclone/mypage
+#+END_EXAMPLE
