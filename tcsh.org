@@ -1,0 +1,4 @@
+* csh and tcsh notes
+** remote access with screen
+*** ssh ngender.org -t  "tcsh -c 'setenv SHELL tcsh; screen -R'"
+Use ssh -X if you have a local X server
